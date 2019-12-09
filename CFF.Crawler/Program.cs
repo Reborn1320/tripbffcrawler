@@ -149,12 +149,12 @@ namespace CFF.Crawler
                     Thread.Sleep(500);
                 }
 
-                WriteToJsonFile(filePathTravel, locations.Select(lo => new {
-                    lo.Title,
-                    lo.Address,
-                    lo.Long,
-                    lo.Lat
-                }).ToList());
+                var result = new LocationResult
+                {
+                    Locations = locations
+                };
+
+                WriteToJsonFile(filePathTravel, result);
 
                 driver.Quit();
             }
@@ -307,14 +307,9 @@ namespace CFF.Crawler
                     Thread.Sleep(500);
                 }
 
-                var result = new
+                var result = new LocationResult
                 {
-                    Locations = locations.Select(lo => new {
-                        lo.Title,
-                        lo.Address,
-                        lo.Long,
-                        lo.Lat
-                    }).ToList()
+                    Locations = locations
                 };
 
                 WriteToJsonFile(filePathRestaurant, result);
@@ -469,14 +464,9 @@ namespace CFF.Crawler
                     Thread.Sleep(500);
                 }
 
-                var result = new
+                var result = new LocationResult
                 {
-                    Locations = locations.Select(lo => new {
-                        lo.Title,
-                        lo.Address,
-                        lo.Long,
-                        lo.Lat
-                    }).ToList()
+                    Locations = locations
                 };
 
                 WriteToJsonFile(filePathEntertain, result);
@@ -631,14 +621,9 @@ namespace CFF.Crawler
                     Thread.Sleep(500);
                 }
 
-                var result = new
+                var result = new LocationResult
                 {
-                    Locations = locations.Select(lo => new {
-                        lo.Title,
-                        lo.Address,
-                        lo.Long,
-                        lo.Lat
-                    }).ToList()
+                    Locations = locations
                 };
 
                 WriteToJsonFile(filePathEdu, result);
